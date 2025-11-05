@@ -1,5 +1,5 @@
 // Vercel serverless function entry point
-// This imports and exports the Express app for Vercel
+// Using .mjs extension for ES modules
 import { createApp } from "../dist/server/_core/server.js";
 
 let appPromise = null;
@@ -15,3 +15,4 @@ export default async function handler(req, res) {
   const app = await getApp();
   return app(req, res);
 }
+
