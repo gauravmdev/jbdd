@@ -29,7 +29,9 @@ export async function createApp() {
   );
 
   // In production, serve static files
-  if (process.env.NODE_ENV === "production" || process.env.VERCEL) {
+  // On Vercel, static files are served automatically from outputDirectory
+  // but we still need to handle client-side routing for SPA
+  if (process.env.NODE_ENV === "production" && !process.env.VERCEL) {
     serveStatic(app);
   }
 
